@@ -14,5 +14,21 @@ service 'apache2' do
 	action [:start, :enable]
 end
 
+Chef.event_handler do
+  on :run_failed do
+    HandlerSendEmail::Helper.new.send_email_on_run_failure(
+      Chef.run_context.node.name
+    )
+  end
+end
+
+Chef.event_handler do
+  on :run_completed do
+    HandlerSendEmail::Helper.new.send_email_on_run_complete(
+      Chef.run_context.node.name
+    )
+  end
+end
+
 # include_recipe 'apache::websites'
 

@@ -4,7 +4,7 @@ maintainer_email 'itzbenji@gmail.com'
 license 'All Rights Reserved'
 description 'Installs/Configures email-handler'
 long_description 'Installs/Configures email-handler'
-version '0.1.0'
+version '0.1.5'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 depends 'chef_handler'
 
